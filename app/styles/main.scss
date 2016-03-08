@@ -1,0 +1,134 @@
+/* generic */
+*, *:before, *:after { box-sizing:  border-box !important; }
+
+html, body, video {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 300;
+  background: #fafafa;
+  color: #2C2C2A;
+}
+
+h1 {
+  background: url("../images/logo.svg") no-repeat;
+  width: 6em;
+  height: 3em;
+  text-indent: -999em;
+  overflow: hidden;
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+
+/* SO: header slider */
+.slider {
+  width: 100%;
+
+  .introduction {
+    position: absolute;
+    top: 6em;
+    left: 10em;
+    width: 20em;
+    color: #fff;
+    font-size: 1.5em;
+  } 
+
+}
+
+.videoContainer 
+{
+  
+  width: 100%;
+  overflow: hidden;
+
+  video {
+    min-width: 100%;
+    min-height: 100%;
+  }
+ 
+}
+
+/* EO: header slider */
+
+/* SO: main */
+
+main {
+  
+  padding: 10vh 3em 3em 3em;
+  background: #fafafa;
+
+  section {
+    -moz-column-width: 20em;
+    -webkit-column-width: 20em;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+  }
+
+  article {
+    width: 100%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.09);
+    border-radius: 3px;
+    margin-bottom: 2em;
+    padding: 1em;
+    background: #fff;
+  
+    /* &.introduction {
+      border: 0;
+      background: #000;
+      box-shadow: none;
+      background: none;
+
+      h2 {
+        background: url("../images/logo_black.svg") no-repeat;
+        text-indent: -999em;
+        display: block;
+        overflow: hidden;
+        width: 10em;
+        height: 4em;
+        margin-top: 0;
+        fill: #000;
+      }
+
+      a {
+        background: url("../images/twitter.svg") no-repeat;
+        text-indent: -999em;
+        display: block;
+        overflow: hidden;
+        width: 3em;
+        height: 4em;
+      }
+
+    }*/
+
+    &.award {
+
+/*      blockquote {
+        font-size: 1.5em;
+        font-weight: 400;
+      }*/
+
+      background: rgba(70, 50, 255, 1);
+      color: #fff;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+}
+
+/* EO: main */
