@@ -1,7 +1,7 @@
 /* generic */
 *, *:before, *:after { box-sizing:  border-box !important; }
 
-html, body, video {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -31,15 +31,22 @@ h2 {
 
 /* SO: header slider */
 .slider {
-  width: 100%;
+  position: relative;
+  overflow: hidden;
+  width:100vw;
+  height:100vh;
+  max-height:100vh;
+  text-align:center;
 
   .introduction {
     position: absolute;
-    top: 6em;
-    left: 10em;
-    width: 20em;
+    z-index: 999;
+    top: 10%;
+    left: 10%;
+    width: 50vw;
     color: #fff;
     font-size: 1.5em;
+    text-align: left;
   } 
 
 }
@@ -47,12 +54,20 @@ h2 {
 .videoContainer 
 {
   
-  width: 100%;
-  overflow: hidden;
+  position:absolute;
+  height:100%;
+  width:200%;
+  left:-50%;
 
   video {
-    min-width: 100%;
-    min-height: 100%;
+    position:absolute;
+    top: -99999px;
+    bottom: -99999px;
+    left: -99999px;
+    right: -99999px;
+    margin: auto;
+    min-height:100%;
+    min-width:50%;
   }
  
 }
@@ -67,8 +82,9 @@ main {
   background: #fafafa;
 
   section {
-    -moz-column-width: 20em;
-    -webkit-column-width: 20em;
+    -moz-column-width: 75vh;
+    -webkit-column-width: 75vh;
+    column-width: 75vh;
     -moz-column-gap: 1em;
     -webkit-column-gap: 1em;
   }
