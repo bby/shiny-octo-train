@@ -16,7 +16,11 @@
  *  limitations under the License
  *
  */
-/* eslint-env browser */
+ /* global Blazy */
+ /* eslint no-unused-vars: 1 */
+ /* eslint no-undef: 2 */
+ /* eslint-env browser */
+
 (function() {
   'use strict';
 
@@ -80,4 +84,5 @@
   }
 
   // Your custom JavaScript goes here
+  var bLazy = new Blazy();
 })();

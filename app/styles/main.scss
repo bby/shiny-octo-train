@@ -28,16 +28,49 @@ h2 {
   font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+  color: #2C2C2A;
+
+  &.twitter, &.facebook, &.whatsapp {
+    display: block;
+    text-indent: -999em;
+    overflow: hidden;
+  }
+
+  &.twitter {
+    background: url("../images/twitter.svg") no-repeat;
+    width: 2em;
+    height: 2em;
+    background-size: 1.5em;
+  }
+
+  &.facebook {
+    background: url("../images/facebook.svg") no-repeat;
+    width: 2em;
+    height: 2em;
+    background-size: 1.5em;
+  }
+
+  &.whatsapp {
+    background: url("../images/whatsapp.svg") no-repeat;
+    width: 5em;
+    height: 5em;
+    margin: -1.3em 0 0 -1.3em;
+  }
+
+}
 
 /* SO: header slider */
+
 .slider {
   width: 100%;
 
   .introduction {
     position: absolute;
-    top: 6em;
-    left: 10em;
-    width: 20em;
+    top: 10%;
+    left: 10%;
+    width: 30%;
     color: #fff;
     font-size: 1.5em;
   } 
@@ -48,7 +81,10 @@ h2 {
 {
   
   width: 100%;
+  height: auto;
   overflow: hidden;
+  background: #2C2C2A;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
 
   video {
     min-width: 100%;
@@ -62,15 +98,18 @@ h2 {
 /* SO: main */
 
 main {
-  
   padding: 10vh 3em 3em 3em;
-  background: #fafafa;
+  background: #2C2C2A;
 
   section {
-    -moz-column-width: 20em;
-    -webkit-column-width: 20em;
+    -moz-column-width: 30em;
+    -webkit-column-width: 30em;
     -moz-column-gap: 1em;
     -webkit-column-gap: 1em;
+  }
+
+  em {
+      font-size: 0.9em;
   }
 
   article {
@@ -79,46 +118,28 @@ main {
     display: inline-block;
     box-shadow: 0 1px 4px rgba(0,0,0,.04);
     border: 1px solid rgba(0,0,0,.09);
-    border-radius: 3px;
+    // border-radius: 3px;
     margin-bottom: 2em;
     padding: 1em;
     background: #fff;
-  
-    /* &.introduction {
-      border: 0;
-      background: #000;
-      box-shadow: none;
-      background: none;
 
-      h2 {
-        background: url("../images/logo_black.svg") no-repeat;
-        text-indent: -999em;
-        display: block;
-        overflow: hidden;
-        width: 10em;
-        height: 4em;
-        margin-top: 0;
-        fill: #000;
+    footer {
+      width: 100%;
+      p {
+        float: left;
       }
-
-      a {
-        background: url("../images/twitter.svg") no-repeat;
-        text-indent: -999em;
-        display: block;
-        overflow: hidden;
-        width: 3em;
-        height: 4em;
+      ul {
+        width: 50%;
+        float: right;
+        list-style: none;
+        li {
+          float: left;
+          margin: 0.1em;
+        }
       }
-
-    }*/
+    }
 
     &.award {
-
-/*      blockquote {
-        font-size: 1.5em;
-        font-weight: 400;
-      }*/
-
       background: rgba(70, 50, 255, 1);
       color: #fff;
     }
@@ -129,6 +150,26 @@ main {
     }
   }
 
+  .b-lazy {
+      -webkit-transition: opacity 500ms ease-in-out;
+         -moz-transition: opacity 500ms ease-in-out;
+           -o-transition: opacity 500ms ease-in-out;
+              transition: opacity 500ms ease-in-out;
+               max-width: 100%;
+                 opacity: 0;
+  }
+  .b-lazy.b-loaded {
+                 opacity: 1;
+  }
+
+}
+
+body > footer {
+  background: #2C2C2A;
+  padding: 10vh 3em 3em 3em;
+  img {
+    width: 5em;
+  }
 }
 
 /* EO: main */

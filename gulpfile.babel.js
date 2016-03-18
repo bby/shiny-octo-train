@@ -39,7 +39,7 @@ const reload = browserSync.reload;
 
 // Lint JavaScript
 gulp.task('lint', () =>
-  gulp.src('app/scripts/**/*.js')
+  gulp.src(['app/scripts/*.js'])
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failOnError()))
@@ -54,6 +54,13 @@ gulp.task('images', () =>
     })))
     .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}))
+);
+
+// Videos
+gulp.task('videos', () =>
+  gulp.src('app/videos/**/*')
+    .pipe(gulp.dest('dist/videos'))
+    .pipe($.size({title: 'videos'}))
 );
 
 // Copy all files at the root level (app)
@@ -109,6 +116,7 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
+      './app/scripts/lib/blazy.min.js',
       './app/scripts/main.js'
       // Other scripts
     ])
@@ -182,6 +190,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts']);
   gulp.watch(['app/images/**/*'], reload);
+  gulp.watch(['app/videos/**/*'], reload);
 });
 
 // Build and serve the output from the dist build
@@ -204,7 +213,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['lint', 'html', 'scripts', 'images', 'videos', 'copy'],
     'generate-service-worker',
     cb
   )
