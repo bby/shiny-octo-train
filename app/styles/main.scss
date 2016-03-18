@@ -1,7 +1,7 @@
 /* generic */
 *, *:before, *:after { box-sizing:  border-box !important; }
 
-html, body, video {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -64,15 +64,22 @@ a {
 /* SO: header slider */
 
 .slider {
-  width: 100%;
+  position: relative;
+  overflow: hidden;
+  width:100vw;
+  height:100vh;
+  max-height:100vh;
+  text-align:center;
 
   .introduction {
     position: absolute;
+    z-index: 999;
     top: 10%;
     left: 10%;
-    width: 30%;
+    width: 50vw;
     color: #fff;
     font-size: 1.5em;
+    text-align: left;
   } 
 
 }
@@ -80,15 +87,23 @@ a {
 .videoContainer 
 {
   
-  width: 100%;
-  height: auto;
   overflow: hidden;
   background: #2C2C2A;
   box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  position:absolute;
+  height:100%;
+  width:200%;
+  left:-50%;
 
   video {
-    min-width: 100%;
-    min-height: 100%;
+    position:absolute;
+    top: -99999px;
+    bottom: -99999px;
+    left: -99999px;
+    right: -99999px;
+    margin: auto;
+    min-height:100%;
+    min-width:50%;
   }
  
 }
@@ -102,8 +117,9 @@ main {
   background: #2C2C2A;
 
   section {
-    -moz-column-width: 30em;
-    -webkit-column-width: 30em;
+    -moz-column-width: 75vh;
+    -webkit-column-width: 75vh;
+    column-width: 75vh;
     -moz-column-gap: 1em;
     -webkit-column-gap: 1em;
   }
