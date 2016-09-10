@@ -1,4 +1,31 @@
-/* generic */
+
+$font-stack: 'Roboto', Helvetica, Arial, sans-serif;
+$primary-colour: #fff;
+$secondary-colour: #000;
+
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+ 
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+@mixin text-alt() {
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+}
+
+@mixin center-content() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 *, *:before, *:after { box-sizing:  border-box !important; }
 
 html, body {
@@ -9,33 +36,59 @@ html, body {
 }
 
 body {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: $font-stack;
   font-weight: 300;
-  background: #fafafa;
-  color: #2C2C2A;
+  background: $secondary-colour;
+  color: $secondary-colour;
+
+  &.detail {
+
+    background: none;
+
+    .slider .introduction h1 {
+      background: none;
+    }
+
+    main {
+      background: #fff;
+      padding: 4em 25vw 3em 25vw;
+      line-height: 24px;
+        h1 {
+          text-align: center;
+        }
+    }
+
+    .introduction {
+      background: none;
+    }
+
+  }
+  
+
 }
 
-h1 {
-  background: url("../images/logo.svg") no-repeat;
-  width: 6em;
-  height: 3em;
-  text-indent: -999em;
-  overflow: hidden;
-  margin: 0;
+img {
+  // mask-border: url('../images/sawtoothmask.svg') 30 round;
+  // -webkit-mask-box-image: url('../images/sawtoothmask.svg') 20 0 20 0 repeat;
 }
 
-h2 {
-  font-weight: 400;
-}
 
 a {
   text-decoration: none;
-  color: #2C2C2A;
+  color: $secondary-colour;
 
-  &.twitter, &.facebook, &.whatsapp {
-    display: block;
-    text-indent: -999em;
-    overflow: hidden;
+  @include prefix(transition, color 0.2s linear, webkit ms o moz);
+
+  &.twitter, &.facebook, &.whatsapp, &.vimeo, &.home {
+    @include text-alt;
+  }
+
+  &.home {
+    background: url("../images/mark.svg") no-repeat;
+    width: 2em;
+    height: 2em;
+    background-size: 2em;
+    display: inline-block;
   }
 
   &.twitter {
@@ -43,6 +96,19 @@ a {
     width: 2em;
     height: 2em;
     background-size: 1.5em;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+  }
+
+  &.vimeo {
+    background: url("../images/vimeo_icon_dark.svg") no-repeat;
+    width: 2em;
+    height: 2em;
+    background-size: 1.5em;
+    position: absolute;
+    right: 2.5em;
+    top: 12px;
   }
 
   &.facebook {
@@ -58,10 +124,65 @@ a {
     height: 5em;
     margin: -1.3em 0 0 -1.3em;
   }
-
+  
 }
 
-/* SO: header slider */
+a:hover {
+  color: red;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2.8em;
+  text-shadow: 1px 1px 21px rgba(0, 0, 0, 0.5);
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  opacity: 0;
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+   0% {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}   
+
+nav {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+
+  span {
+    position: absolute;
+    z-index: 998;
+    // box-shadow: 0px 1px 1px $secondary-colour;
+    display: block;
+    width: 100%;
+    height: 3em;
+    background-color: $secondary-colour;
+    opacity: 0;
+  }
+
+  a {
+    position: relative;
+    z-index: 999;
+    color: $primary-colour;
+    padding: 0.8em 1em 0 1em;
+    display: inline-block;
+    width: auto;
+    // background: url('../images/hamburger.svg') no-repeat;
+    // margin: 10px 0 0 20px;
+  }
+}
+
 
 .slider {
   position: fixed;
@@ -74,12 +195,29 @@ a {
   .introduction {
     position: absolute;
     z-index: 999;
-    top: 10%;
-    left: 10%;
-    width: 50vw;
-    color: #fff;
-    font-size: 1.5em;
-    text-align: left;
+    width: 100%;
+    height: auto;
+    color: $primary-colour;
+
+    h1 {
+      background: url("../images/logo.svg") no-repeat -142px 0;
+      background-size: 500px 100px;
+      height: 100px;
+      width: 220px;
+      @include center-content;
+      top: 40vh;
+      @include text-alt;
+    }
+
+    h2 {
+      background: url("../images/bbc.svg") no-repeat;
+      background-size: 500px 100px;
+      width: 500px;
+      height: 100px;
+      float: right;
+      @include text-alt;
+    }
+
   } 
 
 }
@@ -104,46 +242,34 @@ a {
     min-height:100%;
     min-width:50%;
   }
+
+  .IIV::-webkit-media-controls-play-button,
+  .IIV::-webkit-media-controls-start-playback-button {
+    opacity: 0;
+    pointer-events: none;
+    width: 5px;
+  }
  
 }
 
-/* EO: header slider */
 
-/* SO: main */
 
 main {
-  padding: 10vh 3em 3em 3em;
-  background: #2C2C2A;
+  background: none;
   position: absolute;
+  z-index: 998;
   top: 100vh;
   width: 100%;
-
-  section {
-    -moz-column-width: 75vh;
-    -webkit-column-width: 75vh;
-    column-width: 75vh;
-    -moz-column-gap: 1em;
-    -webkit-column-gap: 1em;
-  }
 
   &.detail {
 
     padding: 0;
-
-    section {
-      -moz-column-width: 100vw;
-      -webkit-column-width: 100vw;
-      column-width: 100vw;
-      -moz-column-gap: 0;
-      -webkit-column-gap: 0;
-    }
 
     article {
       box-shadow: none;
       margin: 0;
       border: none;
     }
-
 
   }
 
@@ -153,13 +279,15 @@ main {
 
   article {
     width: 100%;
-    border: 1px solid #ccc;
-    display: inline-block;
-    box-shadow: 0 1px 4px rgba(0,0,0,.04);
-    border: 1px solid rgba(0,0,0,.09);
-    margin-bottom: 2em;
-    padding: 1em;
-    background: #fff;
+    height: 100%;
+    position: relative;
+
+    header, footer {
+      z-index: 999;
+      color: $primary-colour;
+      width: 100%;
+      @include center-content;
+    }
 
     footer {
       width: 100%;
@@ -179,12 +307,13 @@ main {
 
     &.award {
       background: rgba(70, 50, 255, 1);
-      color: #fff;
+      color: $primary-colour;
     }
 
     img {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
     }
   }
 
@@ -201,13 +330,3 @@ main {
   }
 
 }
-
-body > footer {
-  background: #2C2C2A;
-  padding: 10vh 3em 3em 3em;
-  img {
-    width: 5em;
-  }
-}
-
-/* EO: main */

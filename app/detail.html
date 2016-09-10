@@ -37,53 +37,67 @@
     -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./styles/main.css" >
+    <link rel="stylesheet" href="https://cdn.plyr.io/2.0.7/plyr.css">
   </head>
-  <body>
+  <body class="detail">
     <!-- Add your site or app content here -->
+    <nav>
+      <span>&nbsp;</span>
+      <!-- <a class="home" href="item">Home</a> -->
+
+      <a class="menu" href="item">Social</a>
+      <a class="menu" href="item">Shortform</a>
+      <a class="menu" href="item">Interactive</a>
+      <a class="menu" href="item">VR</a>
+
+      <a class="twitter" href="item">Twitter</a>
+      <a class="vimeo" href="item">Vimeo</a>
+    </nav>
     <header class="slider">
           <div class="introduction">
-            <!-- <h1>BBC Digital Storytelling Team</h1>
-            <p>The BBC Digital Storytelling team – bringing editorial and digital talent together in production, innovation and research.</p> -->
+            <h1>BBC Digital Storytelling Team</h1>
+            <!-- <h2>BBC</h2> -->
+            <!-- <p>The BBC Digital Storytelling team – bringing editorial and digital talent together in production, innovation and research.</p> -->
           </div>
-          <div class="videoContainer">
-            <video autoplay loop>
-                <source src="./videos/ph_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                <source src="./videos/ph_video.webm" type='video/webm; codecs="vp8, vorbis"' />
+          <div data-type="vimeo" data-video-id="179333820"></div>
+<!--           <div class="videoContainer">
+            
+            <video muted loop autoplay webkit-playsinline poster="https://opx-website.s3-eu-west-1.amazonaws.com/2016/06/bbc-video.jpg">
+                <source src="./videos/bbc-digital-storytelling-170479124.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="./videos/bbc-digital-storytelling-170479124.webm" type='video/webm; codecs="vp8, vorbis"' />
                 Video not supported.
             </video>
-          </div>  
+          </div>   -->
     </header>
 
-    <main class="detail">
+    <main>
       <section>
-        <article class="detail">
-        <a href="/detail.html">
-          <header>
-            <h2>Which Shakespeare Character are You?</h2>
-            <em>Comissioners; BBC Bitesize, BBC Knowledge &amp; Learning, BBC Shakespeare Season</em>
-          </header>
-          <p>Get kids aged x - x engaged with Shakespeare. Our approach was... and we created ...</p>
-          </a>
-          <footer>
-            <p>Categories; Interactive</p>
-            <!-- <ul><li><a href="" class="twitter">Share on Twitter</a></li><li><a href="" class="facebook">Share on Facebook</a></li><li><a href="" class="whatsapp">Share on WhatsApp</a></li></ul> -->
-          </footer>
+        <article>
+            <h1>Home: Immersive Spacewalk Experience</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisi nisi, interdum non semper nec, sollicitudin sit amet felis. Nunc ornare interdum dui. Mauris sagittis ultrices ex, nec pretium nisi pellentesque eget. Vestibulum volutpat id ex a ornare. Nulla et diam nec est faucibus volutpat. Morbi in libero justo. Nulla nunc risus, molestie sit amet sapien a, blandit malesuada orci. Fusce faucibus tincidunt urna et finibus. Nulla convallis orci libero, sit amet laoreet ante pellentesque sit amet. Ut posuere augue sit amet ultrices iaculis. Proin ex est, rutrum sed mollis sit amet, ullamcorper sit amet odio. Mauris imperdiet elit ac felis mollis, quis lacinia leo volutpat.</p>
+
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non pharetra massa. Ut auctor lacus turpis, eget rutrum odio dignissim eu. Donec varius elit nec velit cursus ornare. Morbi rutrum tincidunt dolor, vulputate viverra purus feugiat at. Morbi bibendum scelerisque lacus. Morbi consequat orci neque, sit amet tristique tortor venenatis ac. Sed felis neque, eleifend sit amet urna quis, tristique maximus magna. Mauris semper blandit ipsum ac posuere. Cras vel dapibus nisi. Sed euismod molestie turpis, vestibulum luctus tellus consequat in. Nam congue in quam a tristique.</p>
+
+<p>Vestibulum eget leo aliquam est condimentum ultrices iaculis at risus. Vivamus sit amet urna vel mi rhoncus suscipit quis ac orci. Suspendisse aliquam urna lacus, a maximus massa finibus vel. Pellentesque vel pulvinar nulla. Sed tincidunt convallis mi et sodales. In ac felis eu nisi ultricies mattis. Quisque fringilla quam nec aliquet laoreet. Aliquam mattis a turpis in ornare. Praesent tempus consequat sem, nec facilisis massa. Nunc tempus suscipit lobortis. Suspendisse nec nisl rhoncus, placerat nunc sit amet, suscipit sem. Aliquam tellus purus, blandit vel lobortis in, mattis vitae velit. Nam molestie tortor et maximus porttitor.</p>
         </article>
       </section>
     </main>
 
-    <footer>
-      <img src="./images/bbc.svg" />
-    </footer>
-
+    <script src="https://cdn.plyr.io/2.0.7/plyr.js"></script>
 
     <!-- build:js(app/) ../../scripts/main.min.js -->
-    <script src="scripts/lib/blazy.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="./scripts/lib/blazy.min.js"></script>
+    <script src="./scripts/lib/zepto.min.js"></script>
+    <script src="./scripts/lib/iphone-inline-video.browser.js"></script>
+    <script src="./scripts/lib/on-screen.umd.min.js"></script>
+    <script src="./scripts/main.js"></script>
     <!-- endbuild -->
-
+    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
+
+      plyr.setup();
+
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

@@ -1,4 +1,5 @@
 [
   "node_modules/*",
-  "app/scripts/blazy.min.js"
+  "app/scripts/lib/blazy.min.js",
+  "app/scripts/lib/zepto.min.js"
 ]

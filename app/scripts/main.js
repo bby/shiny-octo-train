@@ -16,7 +16,7 @@
  *  limitations under the License
  *
  */
- /* global Blazy */
+ /* global Blazy, $, makeVideoPlayableInline, OnScreen, plyr */
  /* eslint no-unused-vars: 1 */
  /* eslint no-undef: 2 */
  /* eslint-env browser */
@@ -83,6 +83,34 @@
     });
   }
 
+  var os = new OnScreen();
+  os.on('enter', 'h2', function(element) {
+    element.classList.add('fadeInDown');
+  });
+
+  var video = document.getElementsByTagName('video')[0];
+  var logo = document.getElementsByTagName('h1')[0];
+
+  if(video) {
+    makeVideoPlayableInline(video, false);
+    video.play();
+    video.onplay = function() {
+      logo.style.display = 'none';
+    };
+  }
+  
+
   // Your custom JavaScript goes here
   var bLazy = new Blazy();
+  var sliderHeight = $('.slider').height();
+  $(window).on('scroll', function() {
+    var fadeOut = ((sliderHeight - $(window).scrollTop()) / $('.slider').height()).toFixed(2);
+    var fadeIn = 1 - ((sliderHeight - $(window).scrollTop()) / $('.slider').height()).toFixed(2);
+    $('.slider').css('opacity', fadeOut);
+    if (fadeOut < 0.09) {
+      $('nav span').css('opacity', fadeIn);
+    } else {
+      $('nav span').css('opacity', 0);
+    }
+  });
 })();
