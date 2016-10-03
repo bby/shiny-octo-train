@@ -43,7 +43,7 @@ body {
 
   &.detail {
 
-    background: none;
+    background: #000;
 
     .slider .introduction h1 {
       background: none;
@@ -68,8 +68,11 @@ body {
 }
 
 img {
-  // mask-border: url('../images/sawtoothmask.svg') 30 round;
-  // -webkit-mask-box-image: url('../images/sawtoothmask.svg') 20 0 20 0 repeat;
+  // mask: url(../images/clippath.svg#c1) 50px 30px/10px 10px repeat-x exclude;
+  // -webkit-clip-path: url(../images/clippath.svg#c1);
+  // -webkit-mask-border: url('../images/sawtoothmask.svg') 20 0 20 0 repeat;
+  -webkit-mask-box-image: url('../images/sawtoothmask.svg') 0 repeat;
+  margin-top: -2vh;
 }
 
 
